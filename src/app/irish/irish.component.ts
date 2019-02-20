@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import{HalfService} from '../services/half.service';
 
 @Component({
   selector: 'app-irish',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IrishComponent implements OnInit {
 
-  constructor() { }
+  constructor(private halfservice: HalfService) { }
 
   ngOnInit() {
   }
@@ -14,7 +15,8 @@ export class IrishComponent implements OnInit {
 	leath : number;
 
   	fuairHalf() {
-  		this.leath = this.uimhir/2;
+      //this.leath = this.uimhir/2;
+      this.leath = this.halfservice.getHalf(this.uimhir);
   	}
 
 }
